@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Sentiment Analysis </title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <style>
+        /* Spinner CSS */
+        .spinner {
+            display: none;
+            margin: 15px auto;
+            border: 6px solid #f3f3f3;
+            border-top: 6px solid #3498db;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg);}
+            100% { transform: rotate(360deg);}
+        }
+    </style>
+</head>
+<body>
+    <h1>Sentiment Analysis</h1>
+
+    <form id="sentimentForm" method="post" onsubmit="showSpinner()">
+        <textarea id="inputText" name="user_text" rows="5" cols="60" placeholder="Enter your text here..." oninput="updateCharCount()">{{ user_text }}</textarea>
+        <div>Character Count: <span id="charCount">0</span></div>
+        <br>
+        <input type="submit" value="Analyze" />
+        <button type="button" onclick="clearText()">Clear</button>
+    </form>
+
+    <div class="spinner" id="loadingSpinner"></div>
+
+    {% if analysis %}
+    <h2 style="color: {{ color }};">Result: {{ analysis }}</h2>
+    {% endif %}
+
+<script>
+    function updateCharCount() {
+        const textLength = document.getElementById('inputText').value.length;
+        document.getElementById('charCount').innerText = textLength;
+    }
+
+    function clearText() {
+        document.getElementById('inputText').value = '';
+        document.getElementById('charCount').innerText = 0;
+        // Clear result on page reload (you may need to refresh)
+        window.location.href = '/';
+    }
+
+    function showSpinner() {
+        document.getElementById('loadingSpinner').style.display = 'block';
+    }
+
+    // Initialize char count on page load with existing text
+    window.onload = updateCharCount;
+</script>
+</body>
+</html>

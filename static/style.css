@@ -1,0 +1,103 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #a0dddd;
+    margin: 60px auto;
+    max-width: 700px;
+    padding: 20px;
+    color: #333;
+}
+
+h1 {
+    font-weight: 1000;
+    border: 10px solid #3498db;
+    padding: 15px;
+    border-radius: 10px;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+form {
+    background: #eba6a6;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+textarea {
+    width: 100%;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    resize: vertical;
+    box-sizing: border-box;
+    margin-bottom: 8px;
+}
+
+#charCount {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+    text-align: right;
+}
+
+button, input[type="submit"] {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 14px 30px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover, input[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
+h2 {
+    color: #27ae60;
+    text-align: center;
+    margin-top: 30px;
+}
+
+button[type="button"] {
+    background-color: #95a5a6; /* Clear button color */
+}
+
+button[type="button"]:hover {
+    background-color: #7f8c8d;
+}
+
+/* Spinner styles */
+.spinner {
+    margin: 20px auto;
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid #3498db;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    display: none; /* hidden by default */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg);}
+    100% { transform: rotate(360deg);}
+}
+/* Responsive design */
+@media (max-width: 600px) {
+    body {
+        margin: 20px;
+        padding: 10px;
+    }
+
+    button, input[type="submit"] {
+        width: 100%;
+        margin: 10px 0;
+    }
+}
